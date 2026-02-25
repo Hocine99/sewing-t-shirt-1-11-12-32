@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bunny Plush Designer</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- jsPDF (UMD build — exposes window.jspdf) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Import map for Three.js ES module bare specifiers -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- ── Left Panel ─────────────────────────────────────────────────────── -->
+  <aside class="panel">
+    <div class="panel-header">
+      <h1>Bunny Plush Designer</h1>
+      <p>Design your own cute plush bunny in 3D</p>
+    </div>
+
+    <div class="panel-body">
+
+      <!-- Measurements section — sliders injected by main.js -->
+      <div class="panel-section" id="section-measurements">
+        <div class="section-title">Dimensions</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Style section — selects injected by main.js -->
+      <div class="panel-section" id="section-style">
+        <div class="section-title">Style & Options</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Pattern info -->
+      <div class="panel-section">
+        <div class="section-title">Plush Info</div>
+        <div class="pattern-info-box">
+          <div id="pattern-info">Loading…</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Export buttons always visible at bottom -->
+    <div class="panel-footer">
+      <button id="btn-export-svg" class="btn btn-primary">
+        <span class="btn-icon">&#x2B73;</span>
+        Export SVG
+      </button>
+      <button id="btn-export-pdf" class="btn btn-secondary">
+        <span class="btn-icon">&#x1F4C4;</span>
+        Export PDF
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── 3D Viewport ─────────────────────────────────────────────────────── -->
+  <main class="viewport">
+    <canvas id="viewport-canvas"></canvas>
+    <div class="viewport-overlay">
+      <div class="viewport-badge">3D Preview</div>
+      <div class="viewport-hint">Drag to orbit &bull; Scroll to zoom</div>
+    </div>
+  </main>
+
+</div>
+
+<!-- Main application module -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
